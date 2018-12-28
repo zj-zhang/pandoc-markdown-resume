@@ -1,0 +1,166 @@
+% Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
+% Copyright 2014 Mark Szepieniec <http://github.com/mszep>
+% 
+% ConText style for making a resume with pandoc. Inspired by moderncv.
+% 
+% This CSS document is delivered to you under the CC BY-SA 3.0 License.
+% https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
+
+\startmode[*mkii]
+  \enableregime[utf-8]  
+  \setupcolors[state=start]
+\stopmode
+
+\setupcolor[hex]
+\definecolor[titlegrey][h=757575]
+\definecolor[sectioncolor][h=397249]
+\definecolor[rulecolor][h=9cb770]
+
+% Enable hyperlinks
+\setupinteraction[state=start, color=sectioncolor]
+
+\setuppapersize [A4][A4]
+\setuplayout    [width=middle, height=middle,
+                 backspace=20mm, cutspace=0mm,
+                 topspace=10mm, bottomspace=20mm,
+                 header=0mm, footer=0mm]
+
+%\setuppagenumbering[location={footer,center}]
+
+\setupbodyfont[11pt, helvetica]
+
+\setupwhitespace[medium]
+
+\setupblackrules[width=31mm, color=rulecolor]
+
+\setuphead[chapter]      [style=\tfd]
+\setuphead[section]      [style=\tfd\bf, color=titlegrey, align=middle]
+\setuphead[subsection]   [style=\tfb\bf, color=sectioncolor, align=right,
+                          before={\leavevmode\blackrule\hspace}]
+\setuphead[subsubsection][style=\bf]
+
+\setuphead[chapter, section, subsection, subsubsection][number=no]
+
+%\setupdescriptions[width=10mm]
+
+\definedescription
+  [description]
+  [headstyle=bold, style=normal,
+   location=hanging, width=18mm, distance=14mm, margin=0cm]
+
+\setupitemize[autointro, packed]    % prevent orphan list intro
+\setupitemize[indentnext=no]
+
+\setupfloat[figure][default={here,nonumber}]
+\setupfloat[table][default={here,nonumber}]
+
+\setuptables[textwidth=max, HL=none]
+\setupxtable[frame=off,option={stretch,width}]
+
+\setupthinrules[width=15em] % width of horizontal rules
+
+\setupdelimitedtext
+  [blockquote]
+  [before={\setupalign[middle]},
+   indentnext=no,
+  ]
+
+
+\starttext
+
+\section[title={Zijun Zhang},reference={zijun-zhang}]
+
+\startplacetable[location=none]
+\startxtable
+\startxtablebody[body]
+\startxrow
+\startxcell Bioinformatics IDP, UCLA \stopxcell
+\startxcell[align=left]
+\useURL[url1][mailto:zj.z@ucla.edu][][zj.z@ucla.edu]\from[url1] \stopxcell
+\stopxrow
+\startxrow
+\startxcell Los Angeles, CA90095 \stopxcell
+\startxcell[align=left]
+\useURL[url2][https://zj-zhang.github.io/]\from[url2] \stopxcell
+\stopxrow
+\stopxtablebody
+\startxtablefoot[foot]
+\startxrow
+\startxcell USA \stopxcell
+\startxcell[align=left]  \stopxcell
+\stopxrow
+\stopxtablefoot
+\stopxtable
+\stopplacetable
+
+\subsection[title={ Education},reference={education}]
+
+\startdescription{2014-2019 (expected)}
+  Ph.D.~in Bioinformatics; UCLA (Los Angeles, USA)
+\stopdescription
+
+\startdescription{2010-2014}
+  B.Sc. in Bioinformatics; Zhejiang University (Hangzhou, China)
+\stopdescription
+
+\subsection[title={ Publications},reference={publications}]
+
+\startitemize[packed]
+\item
+  {\bf Zhang, Zijun}; Park, Eddie; Lin, Lan; Xing, Yi; A panoramic view
+  of RNA modifications: exploring new frontiers (Genome Biology, 2018)
+\item
+  Park, Eddie; Pan, Zhicheng; Zhang, Zijun; Lin, Lan; Xing, Yi; The
+  expanding landscape of alternative splicing variation in human
+  populations (American Journal of Human Genetics, 2018)
+\item
+  {\bf Zhang, Zijun}; Xing, Yi; CLIP-seq analysis of multi-mapped reads
+  discovers novel functional RNA regulatory sites in the human
+  transcriptome (Nucleic acids research, 2017)
+\item
+  Liu, Lili; {\bf Zhang, Zijun}; Sheng, Taotao; Chen, Ming; DEF: an
+  automated dead-end filling approach based on quasi-endosymbiosis
+  (Bioinformatics, 2017)
+\item
+  Liu, Lili; Mei, Qian; Yu, Zhenning; Sun, Tianhao; {\bf Zhang, Zijun};
+  Chen, Ming; An integrative bioinformatics framework for genome-scale
+  multiple level network reconstruction of rice (Journal of integrative
+  bioinformatics,2013)
+\item
+  Liu, Lili; {\bf Zhang, Zijun}; Mei, Qian; Chen, Ming; PSI: a
+  comprehensive and integrative approach for accurate plant subcellular
+  localization prediction (PLoS One, 2013)
+\stopitemize
+
+\subsection[title={ Projects},reference={projects}]
+
+\startdescription{{\bf CLAM}}
+  {\em CLIP-seq Analysis of Multi-mapped reads}
+
+  Open-source python package for calling peaks in CLIP/RIP-seq data.
+\stopdescription
+
+\startdescription{{\bf DARTS}}
+  {\em Deep learning augmented Analysis of RNA-seq Transcript Splicing}
+
+  Bayesian inference utilizing deep-learning prediction informative
+  prior
+\stopdescription
+
+\subsection[title={ Skills},reference={skills}]
+
+\startitemize[packed]
+\item
+  Programming languages: Python, R, scikit, Keras, Tensorflow, Theano,
+  Matlab, AWS, HTML, CSS, PHP, Jekyll, SQL, C/C++, Unix/SGE, Git
+\item
+  Statistics: Regularized regression, Bayesian statistics and Bayesian
+  inference, Causal Inference, Hierarchical modeling, MCMC, multivariate
+  analysis
+\item
+  Machine/Deep learning: Supervised(CNN, LSTM, adaboost/xgboost, SVM,
+  random forest), Unsupervised(clustering, autoencoder, factor
+  analysis), Reinforcement(controller network)
+\stopitemize
+
+\stoptext
